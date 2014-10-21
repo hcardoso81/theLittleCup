@@ -10,32 +10,21 @@
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/toaster.css"/>
     <link rel="stylesheet" href="css/font-awesome/css/font-awesome.css"/>        
+    <link rel="stylesheet" href="css/styles.css"/>
 </head>
-<body>
-    
-    
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">                
-                <a class="navbar-brand" href="#">theLittleCup</a>
-            </div>
-            <div class="navbar-collapse collapse" ng-controller="navCtrl">
-                <ul class="nav navbar-nav">
-                    <li ng-class="{active: isUserSelected}"><a href="#">Usuarios</a></li>
-                    <li ng-class="{active: isTournamentSelected}"><a href="#tournament">Torneo</a></li>
-                    <li ng-class="{active: isStatisticsSelected}"><a href="#statistics">Estadísticas</a></li>
-                    <li ng-class="{active: isPlaySelected}"><a href="#play">Jugar</a></li>                    
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div>
+<body>        
+    <div class="nav-bar-custom" ng-controller="navCtrl">        
+        <ul class="nav nav-pills nav-justified">
+            <li ng-class="{active: isUserSelected}"><a href="#" ng-click="changeState(1)">Usuarios</a></li>
+            <li ng-class="{active: isTournamentSelected}"><a href="#tournament" ng-click="changeState(2)">Torneo</a></li>
+        </ul>
     </div>
+    <hr/>
     
-    
-    <div class="row">
-        <div ng-view></div>        
+    <div class="main-container">        
+        <div class="wrapper" ng-view></div>        
     </div>
-    
-    
+        
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular/angular-route.js"></script>
     <script src='lib/angular/angular-resource.min.js'></script>                
@@ -51,9 +40,6 @@
     <script src="js/services/services.js"></script>
     <script src="js/controllers/navCtrl.js"></script>    
     <script src="js/controllers/usersCtrl.js"></script>
-    <script src="js/controllers/tournamentCtrl.js"></script>
-    <script src="js/controllers/statisticsCtrl.js"></script>
-    <script src="js/controllers/playCtrl.js"></script>
-    
+    <script src="js/controllers/tournamentCtrl.js"></script>    
 </body>
 </html>
