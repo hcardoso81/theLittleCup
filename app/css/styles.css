@@ -1,0 +1,26 @@
+html {    
+    background: #ff;    
+}
+
+.main-container {
+    height: 100%;    
+    padding: 0px 5px 5px 5px;
+}
+
+.nav-bar-custom {
+    padding: 5px;
+    height: 30px;
+}
+
+.wrapper {
+    min-height: 100%;
+}
+
+.nav-justified>li {
+    float: left;
+    width: 49.6%;
+}
+
+hr.custom {
+    
+}
