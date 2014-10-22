@@ -21,6 +21,7 @@ html {
     width: 49.6%;
 }
 
-hr.custom {
-    
+.users-container{    
+    max-height: 330px;
+    overflow-y: auto;
 }
