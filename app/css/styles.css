@@ -25,3 +25,13 @@ html {
     max-height: 330px;
     overflow-y: auto;
 }
+
+.img-user {    
+    max-width: 25px;
+    margin-right: 10px;
+}
+
+span.user-name{
+    font-size: 15px;
+    vertical-align: middle;
+}

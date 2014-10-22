@@ -1,6 +1,12 @@
 <div class="list-group users-container">
-    <a href="#" class="list-group-item" ng-repeat="user in users">{{user.name}}</a>    
+    <a href="#" class="list-group-item" ng-repeat="user in users">
+        <div class="user-name">
+            <img src="../img/avatar.jpg" class="img-circle img-user">
+            <span class="user-name">{{user.name}}</span>        
+        </div>
+    </a>    
 </div>
+<hr/>
 <div class="input-group">
     <input type="text" class="form-control" ng-model="userName" placeholder="Nombre nuevo jugador">
     <span class="input-group-btn">
