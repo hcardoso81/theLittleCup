@@ -1,15 +1,33 @@
 'use strict';
 
-app.controller('usersCtrl', function($scope, toaster) {
-    $scope.users = [
-      {
-            name: 'Eze',
-            lastname: 'Peralta'            
-      },{
-            name: 'Negro',
-            lastname: 'Cardoso'                        
-      },{
-            name: 'Juan',
-            lastname: 'Asas'            
-      }];
+app.controller('usersCtrl', function($scope, toaster, userService, $location) {
+    
+    $scope.addUser = function() {
+        var userData = {            
+            name : $scope.userName,
+            lastname : ''
+        };
+        userService.createUser(userData)
+            .success(function (current, status, headers, config) {
+                init();
+                console.log("added");            
+            })
+            .error(function(current, status, headers, config) {
+                console.log("error");                
+            });
+    };
+    
+    function init(){
+        $scope.userName='';
+        //get all elements    
+        $scope.allUsers = userService.getAllUsers()
+            .success(function (users, status, headers, config) {
+                $scope.users = users;
+            })
+            .error(function(data, status, headers, config) {
+                console.log("error");
+            });
+    };
+                
+    init();
 });

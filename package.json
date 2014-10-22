@@ -4,6 +4,7 @@
   "repository": "https://github.com/juanasas/theLittleCup",
   "devDependencies": {
     "express": "~3.2.6",
-    "underscore":"*"
+    "underscore":"*",
+    "mongoose":"*"  
   }
 }
