@@ -7,13 +7,13 @@ app.config(['$routeProvider', function($routeProvider) {
     $routeProvider    
         .when('/', 
             {
-            controller: 'usersCtrl',
-            templateUrl: 'partials/users.html' 
-            })
-        .when('/tournament', 
-            {
             controller: 'tournamentCtrl',
             templateUrl: 'partials/tournament.html' 
+            })
+        .when('/users', 
+            {                
+            controller: 'usersCtrl',
+            templateUrl: 'partials/users.html' 
             })        
         .otherwise({redirectTo: '/'});
 }]);
