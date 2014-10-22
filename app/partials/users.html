@@ -1,2 +1,9 @@
-<h1>Users partial!</h1>
-<p>This is a user partial.</p>
+<div class="list-group users-container">
+    <a href="#" class="list-group-item" ng-repeat="user in users">{{user.name}}</a>    
+</div>
+<div class="input-group">
+    <input type="text" class="form-control" placeholder="Nombre nuevo jugador">
+    <span class="input-group-btn">
+        <button class="btn btn-primary" type="button">Agregar</button>
+    </span>
+</div>
