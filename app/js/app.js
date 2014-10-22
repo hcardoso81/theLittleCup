@@ -14,17 +14,7 @@ app.config(['$routeProvider', function($routeProvider) {
             {
             controller: 'tournamentCtrl',
             templateUrl: 'partials/tournament.html' 
-            })
-        .when('/statistics',
-            {
-            controller: 'statisticsCtrl',
-            templateUrl: 'partials/statistics.html' 
-            })
-        .when('/play',
-            {
-            controller: 'playCtrl',
-            templateUrl: 'partials/play.html' 
-            })            
+            })        
         .otherwise({redirectTo: '/'});
 }]);
 
