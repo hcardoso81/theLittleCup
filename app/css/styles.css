@@ -22,8 +22,8 @@ html {
 }
 
 .users-container{    
-    max-height: 330px;
-    overflow-y: auto;
+    height: 330px;
+    overflow-y: hidden;
 }
 
 .img-user {    
