@@ -10,6 +10,7 @@ app.controller('usersCtrl', function($scope, toaster, userService, $location) {
         userService.createUser(userData)
             .success(function (current, status, headers, config) {
                 init();
+                $scope.$broadcast('recalculateMBScrollbars');
                 console.log("added");            
             })
             .error(function(current, status, headers, config) {
@@ -26,8 +27,8 @@ app.controller('usersCtrl', function($scope, toaster, userService, $location) {
             })
             .error(function(data, status, headers, config) {
                 console.log("error");
-            });
+            });        
     };
-                
-    init();
+        
+    init();    
 });
