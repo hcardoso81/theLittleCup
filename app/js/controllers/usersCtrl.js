@@ -1,34 +1,20 @@
 'use strict';
 
-app.controller('usersCtrl', function($scope, toaster, userService, $location) {
+app.controller('usersCtrl', function($scope, toaster, $location, usersFactory) {
     
     $scope.addUser = function() {
         var userData = {            
             name : $scope.userName,
             lastname : ''
         };
-        userService.createUser(userData)
-            .success(function (current, status, headers, config) {
-                init();
-                $scope.$broadcast('recalculateMBScrollbars');
-                console.log("added");            
-            })
-            .error(function(current, status, headers, config) {
-                console.log("error");                
-            });
-    };
-    
-    function init(){
-        $scope.userName='';
-        //get all elements    
-        $scope.allUsers = userService.getAllUsers()
-            .success(function (users, status, headers, config) {
-                $scope.users = users;
-            })
-            .error(function(data, status, headers, config) {
-                console.log("error");
-            });        
+        $scope.users = usersFactory.addUser(userData);
     };
         
+    function init(){
+        $scope.userName='';
+        
+        $scope.users = usersFactory.getAllUsers();    
+    };
+    
     init();    
 });
