@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('usersCtrl', function($scope, toaster, userService, $location) {
+app.controller('usersCtrl', function($scope, userService, $location) {
     
     $scope.addUser = function() {
         var userData = {            

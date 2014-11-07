@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-var app = angular.module('myApp', ['ngRoute', 'toaster', 'mb-scrollbar']);
+var app = angular.module('myApp', ['ngRoute', 'mb-scrollbar']);
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider    
@@ -17,6 +17,7 @@ app.config(['$routeProvider', function($routeProvider) {
             })        
         .otherwise({redirectTo: '/'});
 }]);
+
 
 
 
