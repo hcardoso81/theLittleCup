@@ -1,4 +1,4 @@
 'use strict';
 
-app.controller('tournamentCtrl', function($scope, $routeParams, $location, toaster) {    
+app.controller('tournamentCtrl', function($scope, $routeParams, $location) {    
 });

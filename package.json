@@ -1,10 +1,11 @@
 {
   "name": "theLittleCup",
+  "private": true,
   "description": "A starter project for AngularJS",
   "repository": "https://github.com/juanasas/theLittleCup",
   "devDependencies": {
     "express": "~3.2.6",
-    "underscore":"*",
-    "mongoose":"*"  
+    "mongoose":"*",      
+    "bower": "*"
   }
 }

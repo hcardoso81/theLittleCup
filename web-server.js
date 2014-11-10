@@ -1,7 +1,7 @@
 var express = require("express");
 var http = require('http');
 var mongoose = require('mongoose');    
-var _ = require("underscore");
+//var _ = require("underscore");
 
 //===========================CONFIGURATION==========================
 // Start express application
