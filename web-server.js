@@ -63,15 +63,15 @@ db.once('open', function() {
     
     //===========================METHODS================================    
     // get all users
-    app.get('/api/allUsers', function(req, res){
-        users.find(function(err, allUsers) {
+    app.get('/api/users', function(req, res){
+        users.find(function(err, users) {
             if (err) return console.error(err);
-            res.send (allUsers);
+            res.send (users);
         });
     });
     
     // create a new user
-    app.put('/newUser', function(req, res) {        
+    app.put('/api/users', function(req, res) {        
         var newUser = new users({            
             name : req.body.name,
             lastname : req.body.lastname

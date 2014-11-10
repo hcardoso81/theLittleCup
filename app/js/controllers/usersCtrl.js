@@ -1,20 +1,33 @@
 'use strict';
 
-app.controller('usersCtrl', function($scope, toaster, $location, usersFactory) {
+app.controller('usersCtrl', ['$scope', 'usersFactory', function($scope, usersFactory) {        
+    $scope.users;    
+    $scope.status;    
     
+    function getUsers(){        
+        usersFactory.getUsers()
+            .success(function (data) {
+                $scope.users = data;
+            })
+            .error(function (error) {
+                $scope.status = 'Error: ' + error.message;
+            });                    
+    };
+
     $scope.addUser = function() {
         var userData = {            
             name : $scope.userName,
             lastname : ''
         };
-        $scope.users = usersFactory.addUser(userData);
+        usersFactory.addUser(userData)
+            .success(function () {
+                $scope.status = 'The user has been created successfully';
+                $scope.users.push(userData);
+            })
+            .error(function(error) {
+                $scope.status = 'Error: ' + error.message;
+            });                
     };
         
-    function init(){
-        $scope.userName='';
-        
-        $scope.users = usersFactory.getAllUsers();    
-    };
-    
-    init();    
-});
+    getUsers();
+}]);

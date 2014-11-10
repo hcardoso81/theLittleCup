@@ -1,34 +1,24 @@
 'use strict';
 
-app.factory('usersFactory', function($http){
-    var allUsers = [];
-    return {
-        
-        getAllUsers: function(){                  
-            $http.get('/api/allUsers')
-                .success(function (data, status, headers, config) {                
-                angular.forEach(data, function(item){
-                    allUsers.push(item);
-                });                                                                                
-                })
-                .error(function(data, status, headers, config) {
-                    console.log("error");                
-                });
-            return allUsers;
-        },
-        
-        addUser: function(newUserData){
-            $http.put('/newUser', newUserData)
-            .success(function (current, status, headers, config) {
-                allUsers.push(newUserData);
-                $scope.$broadcast('recalculateMBScrollbars');                
-                console.log("added");            
-            })
-            .error(function(current, status, headers, config) {
-                console.log("error");                
-            });                                            
-            return allUsers;
-        }  
-        
-    }               
-});
+app.factory('usersFactory', ['$http', function($http){
+    var usersFactory = {};
+    var urlBase = '/api/users';
+    
+    usersFactory.getUsers = function(){        
+        return $http.get(urlBase);
+    };
+    
+    usersFactory.getUser = function(id){        
+        return $http.get(urlBase + '/' + id);
+    };
+    
+    usersFactory.addUser = function (user) {
+        return $http.put(urlBase, user);
+    };
+
+    usersFactory.updateUser = function (user) {
+        return $http.post(urlBase + '/' + user.id, user)
+    };
+    
+    return usersFactory;
+}]);
